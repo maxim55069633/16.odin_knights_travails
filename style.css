@@ -1,0 +1,192 @@
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.square {
+  height: 60px;
+  width: 60px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.gray {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.row1::before {
+  content: "1";
+  color: blue;
+
+  position: absolute;
+
+  font-size: 60px;
+  left: -40px;
+}
+
+.row2::before {
+  content: "2";
+  color: blue;
+
+  position: absolute;
+
+  font-size: 60px;
+  left: -40px;
+}
+
+.row3::before {
+  content: "3";
+  color: blue;
+
+  position: absolute;
+
+  font-size: 60px;
+  left: -40px;
+}
+
+.row4::before {
+  content: "4";
+  color: blue;
+
+  position: absolute;
+
+  font-size: 60px;
+  left: -40px;
+}
+
+.row5::before {
+  content: "5";
+  color: blue;
+
+  position: absolute;
+
+  font-size: 60px;
+  left: -40px;
+}
+
+.row6::before {
+  content: "6";
+  color: blue;
+
+  position: absolute;
+
+  font-size: 60px;
+  left: -40px;
+}
+
+.row7::before {
+  content: "7";
+  color: blue;
+
+  position: absolute;
+
+  font-size: 60px;
+  left: -40px;
+}
+
+.row8::before {
+  content: "8";
+  color: blue;
+
+  position: absolute;
+
+  font-size: 60px;
+  left: -40px;
+}
+
+.column1::after {
+  content: "a";
+  color: red;
+
+  position: absolute;
+
+  font-size: 60px;
+  bottom: -60px;
+}
+
+.column2::after {
+  content: "b";
+  color: red;
+
+  position: absolute;
+
+  font-size: 60px;
+  bottom: -60px;
+}
+
+.column3::after {
+  content: "c";
+  color: red;
+
+  position: absolute;
+
+  font-size: 60px;
+  bottom: -60px;
+}
+
+.column4::after {
+  content: "d";
+  color: red;
+
+  position: absolute;
+
+  font-size: 60px;
+  bottom: -60px;
+}
+
+.column5::after {
+  content: "e";
+  color: red;
+
+  position: absolute;
+
+  font-size: 60px;
+  bottom: -60px;
+}
+.column6::after {
+  content: "f";
+  color: red;
+
+  position: absolute;
+
+  font-size: 60px;
+  bottom: -60px;
+}
+
+.column7::after {
+  content: "g";
+  color: red;
+
+  position: absolute;
+
+  font-size: 60px;
+  bottom: -60px;
+}
+
+.column8::after {
+  content: "h";
+  color: red;
+
+  position: absolute;
+
+  font-size: 60px;
+  bottom: -60px;
+}
+
+.chess_board {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 0;
+  border: 2px black solid;
+}
