@@ -9,7 +9,68 @@
     <script src="scripts.js" defer></script>
   </head>
   <body>
-    <div class="chess_board"></div>
-    <div class="output_steps"></div>
+    <div class="display">
+      <div class="chess_board"></div>
+    </div>
+
+    <div class="display_outcome">
+      <form id="initialize_squares">
+        <div class="start_square_flex">
+          <p>Start Square</p>
+          <label for="start_row">ROW:</label>
+          <select name="start_row" id="start_row">
+            <option value="0">1</option>
+            <option value="1">2</option>
+            <option value="2">3</option>
+            <option value="3">4</option>
+            <option value="4">5</option>
+            <option value="5">6</option>
+            <option value="6">7</option>
+            <option value="7">8</option>
+          </select>
+          <label for="start_column">COLUMN:</label>
+          <select name="start_column" id="start_column">
+            <option value="0">a</option>
+            <option value="1">b</option>
+            <option value="2">c</option>
+            <option value="3">d</option>
+            <option value="4">e</option>
+            <option value="5">f</option>
+            <option value="6">g</option>
+            <option value="7">h</option>
+          </select>
+        </div>
+
+        <div class="end_square_flex">
+          <p>End Square</p>
+          <label for="end_row">ROW:</label>
+          <select name="end_row" id="end_row">
+            <option value="0">1</option>
+            <option value="1">2</option>
+            <option value="2">3</option>
+            <option value="3">4</option>
+            <option value="4">5</option>
+            <option value="5">6</option>
+            <option value="6">7</option>
+            <option value="7">8</option>
+          </select>
+          <label for="end_column">COLUMN:</label>
+          <select name="end_column" id="end_column">
+            <option value="0">a</option>
+            <option value="1">b</option>
+            <option value="2">c</option>
+            <option value="3">d</option>
+            <option value="4">e</option>
+            <option value="5">f</option>
+            <option value="6">g</option>
+            <option value="7">h</option>
+          </select>
+        </div>
+
+        <button type="submit">Calculate</button>
+      </form>
+
+      <div class="output_steps"></div>
+    </div>
   </body>
 </html>

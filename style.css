@@ -1,7 +1,18 @@
 body {
   display: flex;
+  flex-direction: row;
+  justify-items: center;
+}
+
+.display {
+  flex: 2;
+  display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.display_outcome {
+  flex: 1;
 }
 
 .square {
@@ -15,6 +26,20 @@ body {
 
 .gray {
   background-color: rgba(0, 0, 0, 0.1);
+}
+
+.start_square_image {
+  height: 60px;
+  width: 60px;
+  background-image: url("./images/knight.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.end_square_color {
+  height: 60px;
+  width: 60px;
+  background-color: green;
 }
 
 .row {
@@ -189,4 +214,8 @@ body {
 
   padding: 0;
   border: 2px black solid;
+}
+
+button {
+  margin: 20px;
 }

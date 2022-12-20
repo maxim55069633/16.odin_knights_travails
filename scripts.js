@@ -18,21 +18,10 @@ class position {
 
 const chess_game = (() => {
   const game_board = document.querySelector(".chess_board");
-  let start_square;
-  let end_square;
+  let start_square = null;
+  let end_square = null;
   let min_step = 63;
   let success_record = [];
-
-  const select_start_and_end_squares = () => {
-    start_square = new position(0, 1);
-    start_square.previous_steps.push(start_square);
-    const start_square_div = document.getElementById("01");
-    start_square_div.style.backgroundColor = "green";
-
-    end_square = new position(4, 4);
-    const end_square_div = document.getElementById("44");
-    end_square_div.style.backgroundColor = "yellow";
-  };
 
   //   initialize the gameboard
   const create_chess_board = () => {
@@ -54,11 +43,7 @@ const chess_game = (() => {
       row.classList.add(`row${i + 1}`);
       game_board.appendChild(row);
     }
-
-    select_start_and_end_squares();
   };
-
-  create_chess_board();
 
   // attention, here the parameter is the reference of the argument
   const is_legal_move = (next_move) => {
@@ -179,13 +164,21 @@ const chess_game = (() => {
       }
     }
 
-    console.log(success_record);
-
     return path_found;
   };
 
   const output = () => {
     next_move();
+
+    const start_square_div = document.getElementById(
+      `${start_square.row}` + `${start_square.column}`
+    );
+    start_square_div.classList.add("start_square_image");
+
+    const end_square_div = document.getElementById(
+      `${end_square.row}` + `${end_square.column}`
+    );
+    end_square_div.classList.add("end_square_color");
 
     const output = document.querySelector(".output_steps");
     output.textContent = `You made it in ${min_step} moves!  Here's your path:`;
@@ -194,14 +187,64 @@ const chess_game = (() => {
       step.textContent = `[${element.row + 1},${alphabet[element.column]}]`;
       output.appendChild(step);
     });
+
+    min_step = 63;
+    success_record = [];
+
+    return true;
   };
+
+  function confirm_squares(e) {
+    if (start_square != null || end_square != null) {
+      const start_square_div = document.getElementById(
+        `${start_square.row}` + `${start_square.column}`
+      );
+      start_square_div.classList.remove("start_square_image");
+
+      const end_square_div = document.getElementById(
+        `${end_square.row}` + `${end_square.column}`
+      );
+      end_square_div.classList.remove("end_square_color");
+    }
+
+    const formData = new FormData(e.target);
+    const start_row = parseInt(formData.get("start_row"));
+    const start_column = parseInt(formData.get("start_column"));
+
+    const end_row = parseInt(formData.get("end_row"));
+    const end_column = parseInt(formData.get("end_column"));
+
+    if (start_row == end_row && start_column == end_column) {
+      alert("The start square and the end square can't be the same ");
+      () => {
+        location.reload();
+        return false;
+      };
+    } else {
+      start_square = new position(start_row, start_column);
+      start_square.previous_steps.push(start_square);
+
+      end_square = new position(end_row, end_column);
+
+      output();
+
+      e.preventDefault();
+    }
+  }
+
+  const select_start_and_end_squares = () => {
+    const form_listener = document.querySelector("#initialize_squares");
+    form_listener.addEventListener("submit", confirm_squares);
+  };
+
+  create_chess_board();
+  select_start_and_end_squares();
 
   return {
     start_square,
     end_square,
-    next_move,
     output,
+    min_step,
+    success_record,
   };
 })();
-
-chess_game.output();
